@@ -38,6 +38,9 @@ Please ensure that your pull request follows the project's code style and includ
     - fix: A bug fix.
     - style: Style-related changes (e.g., formatting, code style).
     - chore: Routine tasks, maintenance, or tooling-related changes.
+    - refractor: Refactoring production code, eg. renaming a variable
+    - perf: Code to improve the performance of the present code
+    - docs: Change the documentation of the repository
 2. Start the commit message with a succinct summary that clearly describes the purpose of the commit.
 3. Provide more specific details about the changes made in the commit, using bullet points if necessary.
 4. Reference any related issue(s) in the commit message.
