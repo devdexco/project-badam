@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ResumeForm from "./ResumeForm";
 import ResumeGenerator from "./ResumeGenerator";
+import Preview from "./Preview";
+
 
 const App = () => {
   const [resumeData, setResumeData] = useState(null);
@@ -14,7 +16,9 @@ const App = () => {
       {!resumeData ? (
         <ResumeForm generateResume={generateResume} />
       ) : (
+        <>
         <ResumeGenerator {...resumeData} />
+        </>
       )}
     </div>
   );

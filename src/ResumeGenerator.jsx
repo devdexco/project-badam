@@ -8,14 +8,44 @@ import {
   PDFDownloadLink,
 } from "@react-pdf/renderer";
 import PropTypes from "prop-types";
+import { Font } from '@react-pdf/renderer'
+
+Font.register({
+  family: 'Garamond',
+  fonts: [
+    { src: "/fonts/CormorantGaramond-Regular.ttf" },
+    { src: "/fonts/CormorantGaramond-Bold.ttf", fontWeight: 'bold' },
+    { src: "/fonts/CormorantGaramond-Italic.ttf", fontStyle: 'italic' },
+    { src: "/fonts/CormorantGaramond-BoldItalic.ttf", fontWeight: 'bold', fontStyle: 'italic' },
+  ],
+});
+
+
+// import { Font } from '@react-pdf/renderer'
+
+// const hyphenationCallback = (word) => {
+//   return word
+// }
+
+// Font.registerHyphenationCallback(hyphenationCallback);
 
 const styles = StyleSheet.create({
   container: {
     padding: "40px 20px",
   },
   name: {
-    fontSize: "25px",
-    fontWeight: "600",
+    fontSize: "20px",
+    fontWeight: "black",
+    marginTop: "10px",
+    textTransform: "uppercase",
+  },
+  header: {
+    marginBottom: "10px",
+  },
+  headerContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   paragraph: {
     fontSize: "12px",
@@ -23,11 +53,17 @@ const styles = StyleSheet.create({
   page: {
     flexDirection: "column",
     backgroundColor: "#E4E4E4",
-    padding: "20px",
+    padding: "15px",
+    fontFamily: "Garamond",
   },
   heading: {
-    fontSize: 20,
-    marginBottom: 10,
+    fontSize: 15,
+    marginVertical: 10,
+    textDecoration: "none",
+    borderBottomStyle: "solid",
+    borderBottomWidth: 1,
+    paddingBottom: 10,
+    marginRight: 20,
   },
   section: {
     marginBottom: 10,
@@ -43,18 +79,75 @@ const styles = StyleSheet.create({
     margin: "10px 0",
     borderRadius: "10px",
   },
+  columnsContainer: {
+    display: "grid",
+    flexDirection: "row",
+    flexFlow: "row wrap",
+  },
+  columnSmall: {
+    width: "35%",
+  },
+  columnLarge: {
+    width: "65%",
+  },
 });
 
 const MyDocument = ({ name, email, phone, experience, education, skills }) => (
   <Document>
     <Page size="A4" style={styles.page}>
-      <View style={styles.container}>
-        <Text style={styles.name}>{name}</Text>
-        <Text style={styles.paragraph}>Email: {email}</Text>
-        <Text style={styles.paragraph}>Phone: {phone}</Text>
-        <Text style={styles.paragraph}>Experience: {experience}</Text>
-        <Text style={styles.paragraph}>Education: {education}</Text>
-        <Text style={styles.paragraph}>Skills: {skills}</Text>
+      <View style={styles.headerContainer}>
+        <View style={styles.header}>
+          <Text style={styles.name} wrap={true}>
+            {name || "sample name"}
+          </Text>
+          <Text style={styles.paragraph}>
+            {"intro text \n line1 \n line2 \n line3" || intro}
+          </Text>
+        </View>
+        <View style={styles.header}>
+          <Text style={styles.paragraph}>
+            {`J‐90, NIT Srinagar, Hazaratbal \nSrinagar, J& K‐190 006, India \nMob.: +91-${phone || "9998888222"} \nEmail. ${email || "me@mysite.com"}: \nWeb: mysite.com ` ||
+              intro}
+          </Text>
+        </View>
+      </View>
+
+      <View style={styles.columnsContainer}>
+        <View style={styles.columnSmall}>
+          <View>
+            <Text style={styles.heading}>Links:</Text>
+            <Text style={styles.paragraph}> {"no Links yet" || links}</Text>
+          </View>
+          <View>
+            <Text style={styles.heading}>Skills:</Text>
+            <Text style={styles.paragraph}> {skills}</Text>
+          </View>
+          <View>
+            <Text style={styles.heading}>CourseWork:</Text>
+            <Text style={styles.paragraph}>
+              {" "}
+              {"No coursework yet" || coursework}
+            </Text>
+          </View>
+          <View>
+            <Text style={styles.heading}>Education:</Text>
+            <Text style={styles.paragraph}> {education}</Text>
+          </View>
+        </View>
+        <View style={styles.columnLarge}>
+          <View>
+            <Text style={styles.heading}>Experience:</Text>
+            <Text style={styles.paragraph}>{experience}</Text>
+          </View>
+          <View>
+            <Text style={styles.heading}>Achievements/ Awards:</Text>
+            <Text style={styles.paragraph}>{experience}</Text>
+          </View>
+          <View>
+            <Text style={styles.heading}>Side Project:</Text>
+            <Text style={styles.paragraph}>{experience}</Text>
+          </View>
+        </View>
       </View>
     </Page>
   </Document>
