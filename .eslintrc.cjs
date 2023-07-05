@@ -44,10 +44,10 @@ module.exports = {
     "react/prop-types": 0,
     "react/no-unescaped-entities": [0],
     "react/jsx-no-duplicate-props": [0],
-    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent": ["error", 2],
     indent: [
       "error",
-      4,
+      2,
       {
         FunctionExpression: { parameters: "first" },
         FunctionDeclaration: { parameters: "first" },
