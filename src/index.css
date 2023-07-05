@@ -6,3 +6,14 @@ body {
   background-color: #1a202c;
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
+.react-date-picker__wrapper{
+  border:none;
+}
+
+.react-date-picker__inputGroup__year:focus{
+  outline: none;
+}
+
+.react-date-picker__inputGroup__month:focus{
+  outline: none;
+}
