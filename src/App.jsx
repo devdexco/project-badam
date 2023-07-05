@@ -5,23 +5,23 @@ import Preview from "./Preview";
 
 
 const App = () => {
-  const [resumeData, setResumeData] = useState(null);
+    const [resumeData, setResumeData] = useState(null);
 
-  const generateResume = (data) => {
-    setResumeData(data);
-  };
+    const generateResume = (data) => {
+        setResumeData(data);
+    };
 
-  return (
-    <div>
-      {!resumeData ? (
-        <ResumeForm generateResume={generateResume} />
-      ) : (
-        <>
-        <ResumeGenerator {...resumeData} />
-        </>
-      )}
-    </div>
-  );
+    return (
+        <div>
+            {!resumeData ? (
+                <ResumeForm generateResume={generateResume} />
+            ) : (
+                <>
+                    <ResumeGenerator {...resumeData} />
+                </>
+            )}
+        </div>
+    );
 };
 
 export default App;
