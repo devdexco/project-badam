@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ResumeForm from "./ResumeForm";
 import ResumeGenerator from "./ResumeGenerator";
-import Preview from "./Preview";
+// import Preview from "./Preview";
 
 
 const App = () => {
