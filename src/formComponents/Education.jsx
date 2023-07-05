@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
+import DatePicker from "react-date-picker";
 import { MdAddCircle, MdRemoveCircle } from "react-icons/md";
+import "react-date-picker/dist/DatePicker.css";
+import "react-calendar/dist/Calendar.css";
 
 function Education({ educationFields, setEducationFields }) {
   const handleAdd = () => {
@@ -31,15 +34,20 @@ function Education({ educationFields, setEducationFields }) {
                   >
                     Start:
                   </label>
-                  <input
+                  <DatePicker
                     id={`education-start-${index}`}
-                    value={input.Start}
-                    onChange={(e) => {
+                    value={input.Start ? input.Start : ""}
+                    onChange={(date) => {
                       const updatedFields = [...educationFields];
-                      updatedFields[index].Start = e.target.value;
+                      updatedFields[index].Start = date
+                        ? date.toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                          })
+                        : "";
                       setEducationFields(updatedFields);
                     }}
-                    rows="4"
+                    format="MM/yyyy"
                     className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
@@ -50,15 +58,20 @@ function Education({ educationFields, setEducationFields }) {
                   >
                     End:
                   </label>
-                  <input
+                  <DatePicker
                     id={`education-end-${index}`}
-                    value={input.End}
-                    onChange={(e) => {
+                    value={input.End ? input.End : ""}
+                    onChange={(date) => {
                       const updatedFields = [...educationFields];
-                      updatedFields[index].End = e.target.value;
+                      updatedFields[index].End = date
+                        ? date.toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                          })
+                        : "";
                       setEducationFields(updatedFields);
                     }}
-                    rows="4"
+                    format="MM/yyyy"
                     className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>

@@ -114,7 +114,7 @@ function BasicDetails({ basicDetails, setBasicDetails }) {
 }
 
 BasicDetails.propTypes = {
-  basicDetails: PropTypes.array.isRequired,
+  basicDetails: PropTypes.object.isRequired,
   setBasicDetails: PropTypes.func.isRequired,
 };
 

@@ -82,7 +82,7 @@ function Skills({ skillsFields, setSkillsFields }) {
 }
 
 Skills.propTypes = {
-  skillsFields: PropTypes.array.isRequired,
+  skillsFields: PropTypes.object.isRequired,
   setSkillsFields: PropTypes.func.isRequired,
 };
 

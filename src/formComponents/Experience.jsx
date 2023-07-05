@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
+import DatePicker from "react-date-picker";
 import { MdAddCircle, MdRemoveCircle } from "react-icons/md";
+import "react-date-picker/dist/DatePicker.css";
+import "react-calendar/dist/Calendar.css";
 
 function Experience({ experienceFields, setExperienceFields }) {
   const handleAdd = () => {
@@ -38,15 +41,20 @@ function Experience({ experienceFields, setExperienceFields }) {
                   >
                     Start:
                   </label>
-                  <input
+                  <DatePicker
                     id={`experience-start-${index}`}
-                    value={input.Start}
-                    onChange={(e) => {
+                    value={input.Start ? input.Start : ""}
+                    onChange={(date) => {
                       const updatedFields = [...experienceFields];
-                      updatedFields[index].Start = e.target.value;
+                      updatedFields[index].Start = date
+                        ? date.toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                          })
+                        : "";
                       setExperienceFields(updatedFields);
                     }}
-                    rows="4"
+                    format="MM/yyyy"
                     className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
@@ -57,15 +65,20 @@ function Experience({ experienceFields, setExperienceFields }) {
                   >
                     End:
                   </label>
-                  <input
+                  <DatePicker
                     id={`experience-end-${index}`}
-                    value={input.End}
-                    onChange={(e) => {
+                    value={input.End ? input.End : ""}
+                    onChange={(date) => {
                       const updatedFields = [...experienceFields];
-                      updatedFields[index].End = e.target.value;
+                      updatedFields[index].End = date
+                        ? date.toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                          })
+                        : "";
                       setExperienceFields(updatedFields);
                     }}
-                    rows="4"
+                    format="MM/yyyy"
                     className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
@@ -90,7 +103,10 @@ function Experience({ experienceFields, setExperienceFields }) {
                 />
               </div>
               <div className="w-full">
-                <label htmlFor={`experience-role-${index}`} className="block font-medium text-base">
+                <label
+                  htmlFor={`experience-role-${index}`}
+                  className="block font-medium text-base"
+                >
                   Role (Eg: Developer):
                 </label>
                 <input
@@ -106,7 +122,10 @@ function Experience({ experienceFields, setExperienceFields }) {
                 />
               </div>
               <div className="w-full">
-                <label htmlFor={`experience-team-${index}`} className="block font-medium text-base">
+                <label
+                  htmlFor={`experience-team-${index}`}
+                  className="block font-medium text-base"
+                >
                   Team: (eg: Technical Team)
                 </label>
                 <input

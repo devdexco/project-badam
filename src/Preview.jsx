@@ -138,10 +138,10 @@ const Preview = ({
 };
 
 Preview.propTypes = {
-  basicDetails: PropTypes.array.isRequired,
+  basicDetails: PropTypes.object.isRequired,
   educationFields: PropTypes.array.isRequired,
-  links: PropTypes.array.isRequired,
-  skillsFields: PropTypes.array.isRequired,
+  links: PropTypes.object.isRequired,
+  skillsFields: PropTypes.object.isRequired,
   coursesFields: PropTypes.array.isRequired,
   experienceFields: PropTypes.array.isRequired,
   achievementsFields: PropTypes.array.isRequired,

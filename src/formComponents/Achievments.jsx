@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
+import DatePicker from "react-date-picker";
 import { MdAddCircle, MdRemoveCircle } from "react-icons/md";
+import "react-date-picker/dist/DatePicker.css";
+import "react-calendar/dist/Calendar.css";
 
 function Achievements({ achievementsFields, setAchievementsFields }) {
   const handleAdd = () => {
@@ -28,15 +31,19 @@ function Achievements({ achievementsFields, setAchievementsFields }) {
                   <label htmlFor={`achievement-year-${index}`} className="block font-medium text-base">
                     Year:
                   </label>
-                  <input
+                  <DatePicker
                     id={`achievement-year-${index}`}
-                    value={input.Year}
-                    onChange={(e) => {
+                    value={input.Year ? input.Year : ""}
+                    onChange={(date) => {
                       const updatedFields = [...achievementsFields];
-                      updatedFields[index].Year = e.target.value;
+                      updatedFields[index].Year = date
+                        ? date.toLocaleDateString("en-US", {
+                            year: "numeric",
+                          })
+                        : "";
                       setAchievementsFields(updatedFields);
                     }}
-                    rows="4"
+                    format="yyyy"
                     className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>

@@ -34,7 +34,7 @@ function Links({ links, setLinks }) {
 }
 
 Links.propTypes = {
-  links: PropTypes.array.isRequired,
+  links: PropTypes.object.isRequired,
   setLinks: PropTypes.func.isRequired,
 };
 
