@@ -17,7 +17,7 @@ const App = () => {
         <ResumeForm generateResume={generateResume} />
       ) : (
         <>
-        <ResumeGenerator {...resumeData} />
+          <ResumeGenerator {...resumeData} />
         </>
       )}
     </div>

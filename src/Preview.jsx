@@ -1,3 +1,4 @@
+
 import "./Preview.css";
 import PropTypes from "prop-types";
 
@@ -136,7 +137,6 @@ const Preview = ({
     </div>
   );
 };
-
 Preview.propTypes = {
   basicDetails: PropTypes.object.isRequired,
   educationFields: PropTypes.array.isRequired,
